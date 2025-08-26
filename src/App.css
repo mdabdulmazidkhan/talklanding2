@@ -1,0 +1,282 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f5ed;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Import Rubik font for buttons */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+/* Premium 3D Button Styles */
+.button {
+  --stone-50: #fafaf9;
+  --stone-800: #292524;
+  --teal-400: #009f9d; /* Using teal instead of yellow */
+  
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+  line-height: 1;
+  padding: 1px;
+  transform: translate(-4px, -4px);
+  outline: 2px solid transparent;
+  outline-offset: 5px;
+  border-radius: 9999px;
+  background-color: var(--stone-800);
+  color: var(--stone-800);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  text-align: center;
+  border: none;
+  box-shadow:
+    0.5px 0.5px 0 0 var(--stone-800),
+    1px 1px 0 0 var(--stone-800),
+    1.5px 1.5px 0 0 var(--stone-800),
+    2px 2px 0 0 var(--stone-800),
+    2.5px 2.5px 0 0 var(--stone-800),
+    3px 3px 0 0 var(--stone-800),
+    0 0 0 2px var(--stone-50),
+    0.5px 0.5px 0 2px var(--stone-50),
+    1px 1px 0 2px var(--stone-50),
+    1.5px 1.5px 0 2px var(--stone-50),
+    2px 2px 0 2px var(--stone-50),
+    2.5px 2.5px 0 2px var(--stone-50),
+    3px 3px 0 2px var(--stone-50),
+    3.5px 3.5px 0 2px var(--stone-50),
+    4px 4px 0 2px var(--stone-50);
+}
+
+.button:hover {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 2px var(--stone-50);
+}
+
+.button:active,
+.button:focus-visible {
+  outline-color: var(--teal-400);
+}
+
+.button:focus-visible {
+  outline-style: dashed;
+}
+
+.button > div {
+  position: relative;
+  pointer-events: none;
+  background-color: var(--teal-400);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+}
+
+.button > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  opacity: 0.5;
+  background-image: radial-gradient(rgb(255 255 255 / 80%) 20%, transparent 20%),
+    radial-gradient(rgb(255 255 255 / 100%) 20%, transparent 20%);
+  background-position: 0 0, 4px 4px;
+  background-size: 8px 8px;
+  mix-blend-mode: hard-light;
+  animation: dots 0.5s infinite linear;
+}
+
+.button > div > span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  gap: 0.25rem;
+  filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.25));
+  color: white;
+  font-weight: 600;
+}
+
+.button > div > span:active {
+  transform: translateY(2px);
+}
+
+@keyframes dots {
+  0% {
+    background-position: 0 0, 4px 4px;
+  }
+  100% {
+    background-position: 8px 0, 12px 4px;
+  }
+}
+
+/* Floating Chat Bubbles */
+.floating-chat {
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 159, 157, 0.2);
+  font-size: 14px;
+  color: #444;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.floating-chat-1 {
+  animation: float-1 6s ease-in-out infinite;
+  top: 20%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.floating-chat-2 {
+  animation: float-2 8s ease-in-out infinite;
+  top: 60%;
+  right: 5%;
+  animation-delay: 2s;
+}
+
+.floating-chat-3 {
+  animation: float-3 7s ease-in-out infinite;
+  top: 40%;
+  left: 10%;
+  animation-delay: 4s;
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-20px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+  75% { transform: translateY(-15px) rotate(0.5deg); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(-0.5deg); }
+  66% { transform: translateY(-25px) rotate(1deg); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  20% { transform: translateY(-10px) rotate(0.5deg); }
+  40% { transform: translateY(-20px) rotate(-0.5deg); }
+  60% { transform: translateY(-5px) rotate(0deg); }
+  80% { transform: translateY(-15px) rotate(-1deg); }
+}
+
+/* Enhanced CTA Section Background */
+.enhanced-cta-bg {
+  background: linear-gradient(135deg, #1c2a3a 0%, #0f1419 50%, #009f9d 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-cta-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 159, 157, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(28, 42, 58, 0.4) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
+  opacity: 0.8;
+}
+
+.enhanced-cta-bg::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.03) 2px,
+    rgba(255, 255, 255, 0.03) 4px
+  );
+  animation: pattern-move 20s linear infinite;
+}
+
+@keyframes pattern-move {
+  0% { transform: translateX(0) translateY(0); }
+  100% { transform: translateX(50px) translateY(50px); }
+}
+
+/* Smooth scrolling and custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #009f9d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #007f7d;
+}
+
+/* Custom animations for better performance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Intersection Observer animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #009f9d, #1c2a3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus styles for accessibility */
+.focus\:ring-teal:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 159, 157, 0.3);
+}
+
+/* Mobile responsive adjustments for floating chats */
+@media (max-width: 768px) {
+  .floating-chat {
+    display: none;
+  }
+}
